@@ -18,6 +18,7 @@ form.addEventListener("submit", (e) => {
 function getWeather(city) {
   const loadingMessage = document.getElementById("load");
   loadingMessage.classList.remove("hidden");
+  weatherResult.classList.add("hidden");
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
       city
@@ -43,6 +44,8 @@ function getWeather(city) {
     })
     .catch((error) => {
       alert(error.message);
+      loadingMessage.classList.add("hidden");
       console.error(error);
+      input.value = "";
     });
 }
