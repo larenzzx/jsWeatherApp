@@ -33,10 +33,8 @@ function getWeather(city) {
     .then((data) => {
       loadingMessage.classList.add("hidden");
       weatherResult.classList.remove("hidden");
-      // let name = data.name;
       let icon = data.weather[0].icon;
       let iconWeather = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-
       cityName.textContent = data.name;
       weatherIcon.src = iconWeather;
       condition.textContent = `Condition: ${data.weather[0].description}`;
